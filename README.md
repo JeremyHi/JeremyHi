@@ -1,4 +1,4 @@
-# __Welcome!__
+# __Jeremy Hitchcock__
 
 This is my personal site, where I display and explain various aspects about my work, hobbies, or whatever else comes to mind. You can find the various content laid out by category.
 
@@ -35,4 +35,4 @@ For Bool, security is a high concern, and so we tried to adopt many of the same 
 
 ### Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- I am most available by email:
