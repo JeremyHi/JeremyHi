@@ -6,13 +6,12 @@ This is my personal site, where I display and explain various aspects about my w
 
 ### __[Ethereum Twitter Updates](https://github.com/JeremyHi/Personal-Projects/tree/master/Ethereum_Twitter) (@Current_ETH)__
 
-- Currently houses the `Python` files in which my _**@Current_ETH**_ Twitter account performs rudimentary coin analysis on price of Ethereum, then tweets information about said coin.
+- Currently houses the __Python__ files in which my _**@Current_ETH**_ Twitter account performs rudimentary coin analysis on price of Ethereum, then tweets information about said coin.
 - Performs hourly, twelve hour, and under construction websocket analysis of Ethereum.
 - The goal of this project was to increase my Python skillset, and begin dabbling into the algorithmic trading world.
 The account got successful, and continues to gain followers every day.
 
-<img src="Images/Current_ETH.png" alt="Drawing" style="width: 512px;"/>
-<img src="Images/Current_ETH_iOS.jpg" alt="Drawing" style="width: 256px;"/>
+<img src="Images/Current_ETH.png" alt="Drawing" style="width: 650px;"/>
 
 ### __[bool](https://teecolz.github.io/bool/)__
 
@@ -22,9 +21,23 @@ Often, programmers will fall in love with Bool because of its similarity to Pyth
 
 For Bool, security is a high concern, and so we tried to adopt many of the same things that worked for the two parent languages that ensure some degree of protection and help for the programmer.
 
+## Code Examples: Bool (Left) vs. Javascript (Right)
+#### Variable Declarations
+````
+# Variable Declarations
+let foo:int = 101                               var foo = 101;
+let bar:string = 101                            var bar = "101";
+let y = tru                                     var y = true;
+````
+
 ### About
 
-- Fluent in (Ordered most the least favorite): __Python__, __Javascript__, __Blockchain__, __Java__, __Web Development__
+- Fluent in:
+  - __Python__ (4 years experience)
+  - __Javascript__ (4 years experience)
+  - __Java__ (5 years experience)
+  - __Web Development__ (4 years experience)
+  - __Blockchain__ (<1 year experience),
 - I am currently working at [Vinfolio](https://vinfolio.com/) as an Engineering Intern, where I work full-stack on the website services. I have worked here for the past two years and have learned to use the following technologies:
   - Languages: __Java__, __JSP__, __Javascript__, __SQL__, __HTML__, and __XML__
   - Software: __IntelliJ__, __RazorSQL__, __Resin__, and __Apache-Ant__
@@ -35,4 +48,6 @@ For Bool, security is a high concern, and so we tried to adopt many of the same 
 
 ### Contact
 
-- I am most available by email:
+- __Email:__ jeremyphitchcock@gmail.com
+- __Twitter:__ [@Ruht_Roh](https://twitter.com/Ruht_Roh)
+- __Discord:__ Ruht_roh#8674
