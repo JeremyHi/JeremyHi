@@ -48,6 +48,6 @@ let y = tru                                     var y = true;
 
 ## __Contact__
 
-- __Email:__ me@jeremyhi.us
+- __Email:__ [me@jeremyhi.us](mailito:me@jeremyhi.us)
 - __Twitter:__ [@Ruht_Roh](https://twitter.com/Ruht_Roh)
 - __Discord:__ Ruht_roh#8674
