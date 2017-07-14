@@ -21,7 +21,7 @@ Often, programmers will fall in love with Bool because of its similarity to Pyth
 
 For Bool, security is a high concern, and so we tried to adopt many of the same things that worked for the two parent languages that ensure some degree of protection and help for the programmer.
 
-## Code Examples: Bool (Left) vs. Javascript (Right)
+### Code Examples: Bool (Left) vs. Javascript (Right)
 #### Variable Declarations
 ````
 # Variable Declarations
@@ -30,7 +30,7 @@ let bar:string = 101                            var bar = "101";
 let y = tru                                     var y = true;
 ````
 
-### About
+## __About__
 
 - Fluent in:
   - __Python__ (4 years experience)
@@ -46,7 +46,7 @@ let y = tru                                     var y = true;
 - After college I plan to work in the cybersecurity or system admin roles, as I have a passion for both fields.
   - Currently I have been doing lots of research into [Site Reliability Engineer](https://landing.google.com/sre/interview/ben-treynor.html), and would be very interested in pursing a path to that role as well.
 
-### Contact
+## __Contact__
 
 - __Email:__ jeremyphitchcock@gmail.com
 - __Twitter:__ [@Ruht_Roh](https://twitter.com/Ruht_Roh)
