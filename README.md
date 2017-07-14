@@ -4,7 +4,7 @@ This is my personal site, where I display and explain various aspects about my w
 
 ## __[Featured Projects](https://github.com/JeremyHi/Personal-Projects)__
 
-### __[Ethereum Twitter Updates](https://github.com/JeremyHi/Personal-Projects/tree/master/Ethereum_Twitter) (@Current_ETH)__
+### __[Ethereum Twitter Updates](https://github.com/JeremyHi/Personal-Projects/tree/master/Ethereum_Twitter) ([@Current_ETH](https://twitter.com/current_eth))__
 
 - Currently houses the __Python__ files in which my _**@Current_ETH**_ Twitter account performs rudimentary coin analysis on price of Ethereum, then tweets information about said coin.
 - Performs hourly, twelve hour, and under construction websocket analysis of Ethereum.
