@@ -2,7 +2,7 @@
 
 This is my personal site, where I display and explain various aspects about my work, hobbies, or whatever else comes to mind. You can find the various content laid out by category.
 
-## __Featured Projects__
+## __[Featured Projects](https://github.com/JeremyHi/Personal-Projects)__
 
 ### __[Ethereum Twitter Updates](https://github.com/JeremyHi/Personal-Projects/tree/master/Ethereum_Twitter) (@Current_ETH)__
 
