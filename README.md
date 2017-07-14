@@ -51,3 +51,4 @@ let y = tru                                     var y = true;
 - __Email:__ [me@jeremyhi.us](mailto:me@jeremyhi.us)
 - __Twitter:__ [@Ruht_Roh](https://twitter.com/Ruht_Roh)
 - __Discord:__ Ruht_roh#8674
+- __LinkedIn:__ [Jeremy](https://www.linkedin.com/in/jeremy-hitchcock/)
