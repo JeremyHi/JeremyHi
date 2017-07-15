@@ -1,3 +1,4 @@
-theme: jekyll-theme-cayman
 title: Jeremy Hitchcock
+name: Jeremy Hitchcock
 description: Talk is cheap. Show me the code.
+markdown: kramdown
