@@ -2,7 +2,7 @@
 h2#bool {
     height: 100%;
     padding-top: 80px;
-    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../images/LASkyline.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../Images/LASkyline.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
