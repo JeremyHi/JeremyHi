@@ -197,6 +197,12 @@ h2#bool {
   background-size: cover;
 }
 
+#dapp,
+#eth-logo {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 a#time-magazine {
   color: #fff;
 }
