@@ -313,3 +313,8 @@ h1.project-name {
 	color:#ffffff;
 	color:rgba(0, 0, 0, 0.4);
 }
+
+.glyphicon {
+  top: 25vh;
+  font-size: 45pt;
+}
