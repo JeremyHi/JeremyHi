@@ -642,6 +642,8 @@ a#time-magazine {
     background-color: #159957;
     background-image: linear-gradient(120deg, #3c3c3c, #000000);
     height: 100vh;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .container {
