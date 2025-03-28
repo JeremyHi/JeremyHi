@@ -1,4 +1,13 @@
 title: Jeremy Hitchcock
 name: Jeremy Hitchcock
-description: Talk is cheap. Show me the code.
+description: Personal website of Jeremy Hitchcock
+baseurl: ""
+url: ""
+
+# Build settings
 markdown: kramdown
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

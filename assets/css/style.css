@@ -1,0 +1,187 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-header {
+    background: linear-gradient(45deg, #3c3c3c, #000000);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.text-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-name {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.project-tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #0366d6;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0245a3;
+}
+
+/* Keep your existing styles from the style tag */
+.section-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    color: #ffffff;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card,
+.skills-card,
+.music-card,
+.links-card,
+.reading-card,
+.social-card,
+.work-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.work-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-item:last-child {
+    border-bottom: none;
+}
+
+.work-item h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.work-item p {
+    color: #e0e0e0;
+}
+
+.links li {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.links li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.links li a {
+    color: #4a9eff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links li a:hover {
+    color: #66b1ff;
+    text-decoration: underline;
+}
+
+.description {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+    color: #e0e0e0;
+}
+
+.author {
+    color: #cccccc;
+    font-style: italic;
+}
+
+.follow-me ul {
+    list-style: none;
+    padding: 0;
+}
+
+.follow-me a {
+    color: #4a9eff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.follow-me a:hover {
+    color: #66b1ff;
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+dl {
+    color: #ffffff;
+}
+
+dt {
+    font-weight: bold;
+    color: #4a9eff;
+    margin-top: 1rem;
+}
+
+dd {
+    color: #e0e0e0;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #4a9eff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #66b1ff;
+    text-decoration: underline;
+}
