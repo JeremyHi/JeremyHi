@@ -2,12 +2,19 @@
 layout: home
 title: Jeremy Hitchcock
 ---
+<!-- Add favicon links -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="shortcut icon" href="/favicon.ico">
+
 <section class="page-header">
   <div class="text-header">
     <h1 class="project-name">Jeremy Hitchcock</h1>
     <h2 class="project-tagline">Talk is cheap. Show me the code.</h2>
     <br>
-    <a href="Files/Hitchcock_Resume_2020.pdf" class="btn">Download My Resume</a>
+    <a href="Files/Hitchcock_Resume.pdf" class="btn">Download My Resume</a>
   </div>
   <span class="glyphicon glyphicon-chevron-down" id="arrow-down" aria-hidden="true"></span>
 </section>
@@ -146,13 +153,17 @@ title: Jeremy Hitchcock
           <div class="social-card">
             <div class="follow-me">
               <h2>Follow Me</h2>
-              <ul class="links">
-                <li>
-                  <a href="https://x.com/Ruh_R0" target="_blank ">Twitter</a> /
-                  <a href="https://www.linkedin.com/in/jeremy-hitchcock/ " target="_blank ">LinkedIn</a> /
-                  <a href="https://github.com/JeremyHi " target="_blank ">Github</a>
-                </li>
-              </ul>
+              <div class="social-links">
+                <a href="https://x.com/Ruh_R0" target="_blank" class="social-icon" title="Twitter">
+                  <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jeremy-hitchcock/" target="_blank" class="social-icon" title="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/JeremyHi" target="_blank" class="social-icon" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -162,92 +173,6 @@ title: Jeremy Hitchcock
   </div>
 </section>
 
-<style>
-  .section-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-
-  .section-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .about-card,
-  .skills-card,
-  .music-card,
-  .links-card,
-  .reading-card,
-  .social-card,
-  .work-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
-    padding: 1.5rem;
-    height: 100%;
-  }
-
-  .work-item {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .work-item:last-child {
-    border-bottom: none;
-  }
-
-  .work-item h3 {
-    color: #fff;
-    margin-bottom: 1rem;
-  }
-
-  .links li {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 6px;
-    transition: background 0.3s ease;
-  }
-
-  .links li:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .description {
-    display: block;
-    margin-top: 0.5rem;
-    font-size: 0.9em;
-    color: #ccc;
-  }
-
-  .author {
-    color: #888;
-    font-style: italic;
-  }
-
-  .follow-me ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .follow-me a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .follow-me a:hover {
-    color: #0366d6;
-  }
-
-  .page-header {
-    background: linear-gradient(45deg, #3c3c3c, #000000);
-    transition: background 0.3s ease;
-  }
-</style>
 
 <script>
   $(".page-header").mousemove(function(event) {
