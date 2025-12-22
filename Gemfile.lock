@@ -260,11 +260,9 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-feed
-  jekyll-include-cache
   jekyll-seo-tag
   jekyll-sitemap
-  jemoji
   webrick
 
 BUNDLED WITH
-   1.17.2
+  4.0.2
