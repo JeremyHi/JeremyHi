@@ -1,4 +1,4 @@
-# Jeremy Hitchcock's Personal Website
+# Jeremy's Personal Website
 
 This is my personal website built with Jekyll and hosted on GitHub Pages. The site showcases my professional experience, skills, and interests in a clean, modern interface.
 
