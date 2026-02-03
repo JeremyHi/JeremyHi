@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Jeremy Hi">
+  <meta property="og:locale" content="en_US">
+  {% if page.og_image %}
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image }}">
+  {% endif %}
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  
+  <!-- Canonical points to this shareable URL -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  
+  <!-- Instant redirect -->
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
+  
+  <script>window.location.replace("{{ page.redirect_to }}");</script>
+  
+  <style>
+    body {
+      background-color: #111;
+      color: #aaa;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    a { color: #55aaff; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <p>Redirecting to <a href="{{ page.redirect_to }}">{{ page.title }}</a>...</p>
+    <p>If you are not redirected, <a href="{{ page.redirect_to }}">click here</a>.</p>
+  </noscript>
+  <p>Redirecting...</p>
+</body>
+</html>

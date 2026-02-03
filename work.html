@@ -210,7 +210,7 @@ permalink: /work/
       e.stopPropagation();
       
       const section = btn.dataset.section;
-      const url = `${window.location.origin}/work/#${section}`;
+      const url = `${window.location.origin}/work/${section}/`;
       
       try {
         await navigator.clipboard.writeText(url);
