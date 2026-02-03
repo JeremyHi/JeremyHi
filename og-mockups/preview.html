@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Image Mockups - Jeremy Hi</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      color: #eee;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .subtitle {
+      color: #888;
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 40px;
+    }
+    .mockup-item {
+      background: #222;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .mockup-label {
+      font-size: 14px;
+      color: #55aaff;
+      margin-bottom: 15px;
+      font-family: monospace;
+    }
+    
+    /* OG Image Card - 1200x630 scaled to fit */
+    .og-card {
+      width: 600px;
+      height: 315px;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+      border: 1px solid #333;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Subtle grid pattern */
+    .og-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(85,170,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(85,170,255,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    
+    .og-card .project-name {
+      font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+      font-size: 42px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .og-card .project-desc {
+      font-size: 18px;
+      color: #999;
+      line-height: 1.5;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .og-card .author {
+      position: absolute;
+      bottom: 30px;
+      left: 60px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #555;
+    }
+    
+    .og-card .accent {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 8px;
+      height: 8px;
+      background: #55aaff;
+      border-radius: 50%;
+    }
+
+    /* Variation: with icon hint */
+    .og-card.with-icon .icon-hint {
+      position: absolute;
+      right: 50px;
+      bottom: 50px;
+      font-size: 80px;
+      opacity: 0.08;
+      color: #55aaff;
+    }
+
+    .notes {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+    }
+    
+    /* Platform preview simulation */
+    .platform-preview {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+    }
+    .platform-preview h4 {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .imessage-bubble {
+      background: #1c1c1e;
+      border-radius: 18px;
+      padding: 12px;
+      max-width: 300px;
+    }
+    .imessage-bubble .preview-card {
+      background: #2c2c2e;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .imessage-bubble .preview-card img {
+      width: 100%;
+      height: auto;
+    }
+    .imessage-bubble .preview-card .preview-text {
+      padding: 10px 12px;
+    }
+    .imessage-bubble .preview-card .preview-text .domain {
+      font-size: 11px;
+      color: #8e8e93;
+      text-transform: uppercase;
+    }
+    .imessage-bubble .preview-card .preview-text .title {
+      font-size: 14px;
+      color: #fff;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>OG Image Mockups</h1>
+  <p class="subtitle">1200×630px at 50% scale • Dark minimalist style matching jeremyhi.com</p>
+
+  <div class="mockup-grid">
+    
+    <!-- Gemini -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/gemini/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">gemini</div>
+        <div class="project-desc">Cryptocurrency exchange engineering — KYC systems, compliance tools, event-driven architecture at scale.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">◈</div>
+      </div>
+      <p class="notes">Gemini logo hint in corner (their twin symbol)</p>
+    </div>
+
+    <!-- Propheseer -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/propheseer/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">propheseer</div>
+        <div class="project-desc">Unified prediction market API aggregating Polymarket, Kalshi, and more into a single REST interface.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">◉</div>
+      </div>
+      <p class="notes">Crystal ball / oracle hint for predictions</p>
+    </div>
+
+    <!-- Propheseer Marketing -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/propheseer-marketing/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">propheseer marketing</div>
+        <div class="project-desc">Self-improving Twitter engagement system with closed-loop analytics and automated strategy optimization.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">↻</div>
+      </div>
+      <p class="notes">Loop/cycle symbol for self-improving system</p>
+    </div>
+
+    <!-- JHI Pro -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/jhipro/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">jhi pro</div>
+        <div class="project-desc">Real-time climbing gym occupancy tracker with historical trends and data visualization.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">▲</div>
+      </div>
+      <p class="notes">Mountain/peak symbol for climbing</p>
+    </div>
+
+    <!-- Edmunds -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/edmunds/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">edmunds</div>
+        <div class="project-desc">API platform development for automotive data — matching algorithms, scalable microservice architecture.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">◯</div>
+      </div>
+      <p class="notes">Wheel/automotive hint</p>
+    </div>
+
+    <!-- Cryptosym -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/cryptosym/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">cryptosym</div>
+        <div class="project-desc">Cryptocurrency trading simulator for risk-free learning and practice with real-time market data.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">₿</div>
+      </div>
+      <p class="notes">Bitcoin symbol for crypto trading sim</p>
+    </div>
+
+    <!-- BCG DAppathon -->
+    <div class="mockup-item">
+      <div class="mockup-label">/work/bcg-dappathon/</div>
+      <div class="og-card with-icon">
+        <div class="accent"></div>
+        <div class="project-name">bcg dappathon</div>
+        <div class="project-desc">Blockchain-based hotel payment system built during 48-hour BCG Digital Ventures hackathon.</div>
+        <div class="author">jeremyhi.com</div>
+        <div class="icon-hint">⬡</div>
+      </div>
+      <p class="notes">Hexagon/blockchain hint</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 60px; padding: 30px; background: #222; border-radius: 12px;">
+    <h2 style="font-size: 18px; margin-bottom: 20px;">Design Notes</h2>
+    <ul style="color: #999; line-height: 1.8; padding-left: 20px;">
+      <li><strong>Style:</strong> Matches your site's dark, minimalist, monospace aesthetic</li>
+      <li><strong>Dimensions:</strong> 1200×630px (standard OG size, shown at 50% here)</li>
+      <li><strong>Elements:</strong> Project name, description, domain, subtle accent dot, faint icon hint</li>
+      <li><strong>Grid overlay:</strong> Subtle blue grid pattern adds visual interest without clutter</li>
+      <li><strong>Format:</strong> Will be PNG for crisp text, ~50-150KB each</li>
+      <li><strong>Alt option:</strong> Can remove icon hints for even cleaner look (just text + accent)</li>
+    </ul>
+  </div>
+
+</body>
+</html>
