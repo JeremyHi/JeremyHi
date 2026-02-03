@@ -8,6 +8,33 @@ const HEIGHT = 630;
 
 // Project data
 const projects = {
+  // Main pages
+  home: {
+    name: 'jeremy hi',
+    desc: 'Full-stack engineer at Gemini. Building KYC systems by day, prediction markets by night.',
+    icon: '◆'
+  },
+  contact: {
+    name: 'contact',
+    desc: "Let's build something. Reach out about complex systems, MVPs, or integrations.",
+    icon: '✉'
+  },
+  socials: {
+    name: 'socials',
+    desc: 'Connect with Jeremy — thoughts on engineering, crypto, and building products.',
+    icon: '𝕏'
+  },
+  crypto: {
+    name: 'crypto',
+    desc: 'Crypto addresses for tips and donations — ETH, BTC, SOL.',
+    icon: '₿'
+  },
+  work: {
+    name: 'work',
+    desc: 'Projects: Gemini, Propheseer, and past ventures in fintech and web3.',
+    icon: '◈'
+  },
+  // Work section pages
   gemini: {
     name: 'gemini',
     desc: 'Cryptocurrency exchange engineering — KYC systems, compliance tools, event-driven architecture at scale.',

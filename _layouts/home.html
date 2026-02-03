@@ -4,10 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    {{ page.title }}
-  </title>
+  <title>{{ page.title }}</title>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.og_title | default: page.title }}">
+  <meta property="og:description" content="{{ page.og_description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
+  <meta property="og:site_name" content="Jeremy Hi">
+  <meta property="og:locale" content="en_US">
+  {% if page.og_image %}
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {% endif %}
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="{% if page.og_image %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:site" content="@ruhroh">
+  <meta name="twitter:creator" content="@ruhroh">
+  <meta name="twitter:title" content="{{ page.og_title | default: page.title }}">
+  <meta name="twitter:description" content="{{ page.og_description | default: site.description }}">
+  {% if page.og_image %}
+  <meta name="twitter:image" content="{{ site.url }}{{ page.og_image }}">
+  {% endif %}
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  
+  <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32x32.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16x16.png' | relative_url }}">
