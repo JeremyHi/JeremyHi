@@ -2,7 +2,7 @@ title: jeremy
 name: jeremy
 description: Personal website of jeremy (@ruhroh)
 baseurl: ""
-url: ""
+url: "https://jeremyhi.us"
 
 # Build settings
 markdown: kramdown
