@@ -9,6 +9,56 @@ permalink: /work/
 <link rel="manifest" href="/site.webmanifest">
 <link rel="shortcut icon" href="/favicon.ico">
 
+<style>
+  /* Copy link button styles */
+  .copy-link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.4;
+    padding: 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: opacity 0.2s, color 0.2s;
+    color: #aaa;
+    position: relative;
+    top: -1px;
+  }
+  .copy-link-btn:hover {
+    opacity: 1;
+    color: #55aaff;
+  }
+  .copy-link-btn:focus {
+    outline: 2px solid #55aaff;
+    outline-offset: 2px;
+  }
+  .copy-link-btn svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+  /* Copied state */
+  .copy-link-btn.copied {
+    opacity: 1;
+    color: #4caf50;
+  }
+  /* Mobile: always more visible */
+  @media (max-width: 768px) {
+    .copy-link-btn {
+      opacity: 0.6;
+      padding: 8px;
+    }
+  }
+  /* Smooth scroll for anchor navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Offset for anchor links */
+  .work-item[id] {
+    scroll-margin-top: 20px;
+  }
+</style>
+
 <section class="main-content">
   <div class="container">
     <a href="/" class="back-link">← back</a>
@@ -17,8 +67,16 @@ permalink: /work/
 
     <div class="work-content">
 
-      <div class="work-item">
-        <h3><a href="https://gemini.com/" target="_blank">gemini</a> - cryptocurrency exchange</h3>
+      <div class="work-item" id="gemini">
+        <h3>
+          <a href="https://gemini.com/" target="_blank">gemini</a> - cryptocurrency exchange
+          <button class="copy-link-btn" data-section="gemini" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           i have produced many pieces of work while at <a href="https://www.gemini.com" target="_blank">gemini</a>. from smaller migrations to new services, to large scale implementations of data pipelines, compliance management tools, and highly distributed systems.
         </p>
@@ -36,8 +94,16 @@ permalink: /work/
         </p>
       </div>
 
-      <div class="work-item">
-        <h3><a href="https://propheseer.com/" target="_blank">propheseer</a> - unified prediction market api</h3>
+      <div class="work-item" id="propheseer">
+        <h3>
+          <a href="https://propheseer.com/" target="_blank">propheseer</a> - unified prediction market api
+          <button class="copy-link-btn" data-section="propheseer" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           a unified rest api that aggregates prediction market data from polymarket, kalshi, and gemini into a single, normalized format. one api key provides access to 2,400+ markets across all major prediction platforms.
         </p>
@@ -46,8 +112,16 @@ permalink: /work/
         </p>
       </div>
 
-      <div class="work-item">
-        <h3><a href="https://x.com/getpropheseer" target="_blank">propheseer marketing automation</a> - self-improving twitter engagement</h3>
+      <div class="work-item" id="propheseer-marketing">
+        <h3>
+          <a href="https://x.com/getpropheseer" target="_blank">propheseer marketing automation</a> - self-improving twitter engagement
+          <button class="copy-link-btn" data-section="propheseer-marketing" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           an autonomous system that grows propheseer's twitter presence by engaging with the prediction market community. the system monitors twitter for relevant conversations about polymarket, kalshi, and trading strategies, then responds with targeted marketing messages designed to drive site engagement and api signups.
         </p>
@@ -59,8 +133,16 @@ permalink: /work/
         </p>
       </div>
 
-      <div class="work-item">
-        <h3><a href="https://jhipro.com/" target="_blank">jhipro.com</a> - vital climbing gym occupancy tracker</h3>
+      <div class="work-item" id="jhipro">
+        <h3>
+          <a href="https://jhipro.com/" target="_blank">jhipro.com</a> - vital climbing gym occupancy tracker
+          <button class="copy-link-btn" data-section="jhipro" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           a real-time occupancy tracking dashboard for vital climbing gym in brooklyn. built with a python backend and data visualization using plotly, the site displays current gym capacity and historical trends to help climbers plan their visits.
         </p>
@@ -72,22 +154,46 @@ permalink: /work/
       <h1>past</h1>
       <br>
 
-      <div class="work-item">
-        <h3>edmunds</h3>
+      <div class="work-item" id="edmunds">
+        <h3>
+          edmunds
+          <button class="copy-link-btn" data-section="edmunds" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           internal work for <a href="https://www.edmunds.com" target="_blank">edmunds</a> involving matching and distance algorithms, developing and supporting the api platform which augments and accelerates developing fast, scalable and resilient microservice apis.
         </p>
       </div>
 
-      <div class="work-item">
-        <h3><a href="https://www.youtube.com/watch?v=kk6F14bAUmY" target="_blank">cryptosym</a></h3>
+      <div class="work-item" id="cryptosym">
+        <h3>
+          <a href="https://www.youtube.com/watch?v=kk6F14bAUmY" target="_blank">cryptosym</a>
+          <button class="copy-link-btn" data-section="cryptosym" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           ceo of cryptosym, a website that aimed to provide a safe environment for people to practice trading cryptocurrencies on an exchange in real-time. users can begin by trading with any amount of money, ranging from $1 to $100,000. the website was aimed to be a learning tool for people who are unfamiliar with the cryptocurrency markets and want to practice with fake money. cryptosym offered an initial tutorial on the real-world process of transferring money from your bank account to the exchange, creating a risk-free and informative environment for the users.
         </p>
       </div>
 
-      <div class="work-item">
-        <h3>bcg digital ventures dappathon</h3>
+      <div class="work-item" id="bcg-dappathon">
+        <h3>
+          bcg digital ventures dappathon
+          <button class="copy-link-btn" data-section="bcg-dappathon" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
         <p>
           participation in <a href="https://pollen.bcgdv.com/spotlight-digital-ventures-first-dappathon" target="_blank">bcg digital ventures first dappathon</a> where over the course of 48 hours, developers broke into 20 teams, building the best decentralized apps (dapps) using blockchain technology. with prizes totaling $10k and bragging rights of industry recognition. our project was to build a complete financial system for hotels to utilize the anonymity of the blockchain network in order to provide guests with a faceless transaction and stay at hotels.
         </p>
@@ -95,3 +201,39 @@ permalink: /work/
     </div>
   </div>
 </section>
+
+<script>
+  // Copy link functionality
+  document.querySelectorAll('.copy-link-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const section = btn.dataset.section;
+      const url = `${window.location.origin}/work/#${section}`;
+      
+      try {
+        await navigator.clipboard.writeText(url);
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 1500);
+      } catch (err) {
+        // Fallback for older browsers / iOS
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          btn.classList.add('copied');
+          setTimeout(() => btn.classList.remove('copied'), 1500);
+        } catch (e) {
+          console.error('Copy failed:', e);
+        }
+        document.body.removeChild(textarea);
+      }
+    });
+  });
+</script>
