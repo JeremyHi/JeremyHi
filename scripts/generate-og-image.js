@@ -147,7 +147,7 @@ function generateOGImage(projectKey) {
   // Domain
   ctx.fillStyle = '#555555';
   ctx.font = '28px monospace';
-  ctx.fillText('jeremyhi.com', 120, HEIGHT - 60);
+  ctx.fillText('jeremyhi.us', 120, HEIGHT - 60);
 
   // Icon hint (faint, large)
   ctx.fillStyle = 'rgba(85, 170, 255, 0.08)';
