@@ -1,23 +1,21 @@
+# Dependencies
+node_modules/
+
 # Jekyll
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 
-# Ruby
-vendor/
-.bundle/
-Gemfile.lock
-dev-server.sh
-
-# macOS
+# OS
 .DS_Store
-.AppleDouble
-.LSOverride
+Thumbs.db
 
-# Node
-node_modules/
-package-lock.json
+# Editor
+*.swp
+*.swo
+.vscode/
+.idea/
 
-Images/.DS_Store
-node_modules/
+# Don't ignore built assets - needed for GitHub Pages
+# !assets/js/dist/
