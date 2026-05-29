@@ -11,3 +11,28 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+# Keep dev-only files out of the published site (_site/).
+# NOTE: setting `exclude` overrides Jekyll's built-in defaults, so the standard
+# entries (Gemfile, vendor/, node_modules, caches) are re-listed below.
+exclude:
+  # Internal docs — defense-in-depth (dir is removed from the repo)
+  - Documentation/
+  # Source & build tooling (shipped output lives in assets/js/dist/)
+  - src/
+  - scripts/
+  - vite.config.js
+  - package.json
+  - package-lock.json
+  - node_modules/
+  # Planning / internal docs (not part of the rendered site)
+  - README.md
+  - CONTACT-AND-OG-PLAN.md
+  - og-mockups/
+  # Ruby / Bundler — Jekyll defaults, restored
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - gemfiles/
+  - .sass-cache/
+  - .jekyll-cache/

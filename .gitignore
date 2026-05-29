@@ -1,11 +1,18 @@
 # Dependencies
 node_modules/
 
+# Ruby / Bundler
+vendor/
+.bundle/
+
 # Jekyll
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Internal docs (kept in Obsidian vault — never on the public site)
+Documentation/
 
 # OS
 .DS_Store
