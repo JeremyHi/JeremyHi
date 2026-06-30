@@ -57,7 +57,7 @@ function initMomentumBg() {
       size: Math.round(rand(2, 4)),
       vx: rand(8, 22),
       vy: rand(-3, 3),
-      baseAlpha: rand(0.06, 0.18),
+      baseAlpha: rand(0.18, 0.42),
       phase: rand(0, Math.PI * 2),
       twinkle: rand(0.15, 0.5)
     }
@@ -83,7 +83,7 @@ function initMomentumBg() {
   function draw(alphaScale: number, t: number) {
     ctx!.clearRect(0, 0, width, height)
     for (const p of particles) {
-      const breathe = 0.65 + 0.35 * Math.sin(t * p.twinkle + p.phase)
+      const breathe = 0.78 + 0.22 * Math.sin(t * p.twinkle + p.phase)
       const a = p.baseAlpha * breathe * alphaScale
       if (a <= 0.001) continue
       ctx!.fillStyle = `rgba(${ACCENT}, ${a})`

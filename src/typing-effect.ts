@@ -1,5 +1,3 @@
-import { prepare, layout } from '@chenglou/pretext'
-
 interface TypingConfig {
   /** CSS selector for the container */
   selector: string
@@ -7,10 +5,17 @@ interface TypingConfig {
   speed?: number
   /** Initial delay before typing starts */
   startDelay?: number
-  /** Delay between paragraphs */
-  paragraphDelay?: number
-  /** Show cursor */
+  /** Show a block cursor on each line while it types */
   showCursor?: boolean
+  /** Selector for links to reveal once typing completes */
+  linksSelector?: string
+}
+
+interface ParagraphState {
+  el: HTMLParagraphElement
+  text: string
+  html: string
+  done: boolean
 }
 
 export function initTypingEffect(config: TypingConfig) {
@@ -18,31 +23,30 @@ export function initTypingEffect(config: TypingConfig) {
     selector,
     speed = 35,
     startDelay = 300,
-    paragraphDelay = 200,
-    showCursor = true
+    showCursor = true,
+    linksSelector = '.links-section'
   } = config
 
   const container = document.querySelector(selector)
   if (!container) return
 
-  // Get all paragraphs
-  const paragraphs = Array.from(container.querySelectorAll('p'))
+  const paragraphs = Array.from(container.querySelectorAll('p')) as HTMLParagraphElement[]
   if (paragraphs.length === 0) return
 
-  // Store original content and prepare for typing
-  const contents: { el: HTMLParagraphElement; text: string; html: string }[] = []
-  
-  paragraphs.forEach(p => {
-    contents.push({
-      el: p as HTMLParagraphElement,
+  // Snapshot each paragraph, then clear it for typing.
+  const contents: ParagraphState[] = paragraphs.map(p => {
+    const state: ParagraphState = {
+      el: p,
       text: p.textContent || '',
-      html: p.innerHTML
-    })
+      html: p.innerHTML,
+      done: false
+    }
     p.innerHTML = ''
-    p.style.minHeight = '1.5em' // Prevent layout shift
+    p.style.minHeight = '1.5em' // Reserve height to prevent layout shift
+    return state
   })
 
-  // Add cursor style
+  // Cursor style (one block cursor per line while it types).
   if (showCursor) {
     const style = document.createElement('style')
     style.textContent = `
@@ -58,78 +62,52 @@ export function initTypingEffect(config: TypingConfig) {
     document.head.appendChild(style)
   }
 
-  // Use Pretext to measure and verify text fits
-  const font = getComputedStyle(paragraphs[0]).font || '16px monospace'
-  
-  let currentParagraph = 0
-  let currentChar = 0
-  let timeoutId: number | null = null
+  const maxLen = contents.reduce((m, c) => Math.max(m, c.text.length), 0)
+  let charIndex = 0
 
-  function typeNextChar() {
-    if (currentParagraph >= contents.length) {
-      // Done typing - remove cursor from last paragraph
-      const lastP = contents[contents.length - 1].el
-      lastP.classList.remove('typing-cursor')
-      container?.classList.add('typing-done')
+  function tick() {
+    charIndex++
+
+    for (const c of contents) {
+      if (c.done) continue
+
+      if (charIndex >= c.text.length) {
+        // This line just finished: restore full HTML, drop its cursor.
+        c.el.innerHTML = c.html
+        c.el.classList.remove('typing-cursor')
+        c.done = true
+      } else {
+        c.el.innerHTML = reconstructHTML(c.html, c.text.slice(0, charIndex))
+        if (showCursor) c.el.classList.add('typing-cursor')
+      }
+    }
+
+    if (charIndex >= maxLen) {
+      onComplete()
       return
     }
-
-    const current = contents[currentParagraph]
-    const { el, html } = current
-    
-    // Remove cursor from previous paragraph if moving to new one
-    if (currentChar === 0 && currentParagraph > 0) {
-      contents[currentParagraph - 1].el.classList.remove('typing-cursor')
-    }
-
-    if (currentChar === 0) {
-      el.classList.add('typing-cursor')
-    }
-
-    // Type character by character, preserving HTML tags
-    currentChar++
-    
-    // Simple approach: extract text, type it, but preserve link structure
-    const textOnly = current.text
-    const typed = textOnly.slice(0, currentChar)
-    
-    // Reconstruct HTML with typed portion
-    el.innerHTML = reconstructHTML(html, typed)
-    
-    if (showCursor) {
-      el.classList.add('typing-cursor')
-    }
-
-    if (currentChar >= textOnly.length) {
-      // Finished this paragraph
-      el.innerHTML = html // Restore full HTML
-      currentParagraph++
-      currentChar = 0
-      
-      if (currentParagraph < contents.length) {
-        timeoutId = window.setTimeout(typeNextChar, paragraphDelay)
-      } else {
-        // Last paragraph finished - drop cursor and fire the momentum sweep
-        el.classList.remove('typing-cursor')
-        container?.classList.add('typing-done')
-      }
-    } else {
-      timeoutId = window.setTimeout(typeNextChar, speed)
-    }
+    window.setTimeout(tick, speed)
   }
 
-  // Reconstruct HTML with partial text
+  function onComplete() {
+    // Fire the existing momentum sweep…
+    container?.classList.add('typing-done')
+    // …then reveal the links rising in from below.
+    window.setTimeout(() => {
+      const links = document.querySelector(linksSelector)
+      links?.classList.add('links-revealed')
+    }, 180)
+  }
+
+  // Reconstruct HTML with a partial text length, preserving inline tags (links).
   function reconstructHTML(fullHtml: string, partialText: string): string {
-    // For simple cases, just return partial text
-    // For links, we need smarter handling
     if (!fullHtml.includes('<a')) {
       return partialText
     }
 
-    // Parse and reconstruct with partial content
     const temp = document.createElement('div')
     temp.innerHTML = fullHtml
-    
+
     let charCount = 0
     const targetLength = partialText.length
 
@@ -137,7 +115,7 @@ export function initTypingEffect(config: TypingConfig) {
       if (node.nodeType === Node.TEXT_NODE) {
         const text = node.textContent || ''
         const remaining = targetLength - charCount
-        
+
         if (remaining <= 0) {
           node.textContent = ''
           return false
@@ -153,7 +131,6 @@ export function initTypingEffect(config: TypingConfig) {
         const children = Array.from(node.childNodes)
         for (const child of children) {
           if (!processNode(child)) {
-            // Remove remaining siblings
             let sibling = child.nextSibling
             while (sibling) {
               const next = sibling.nextSibling
@@ -172,8 +149,8 @@ export function initTypingEffect(config: TypingConfig) {
     return temp.innerHTML
   }
 
-  // Start typing after delay
-  setTimeout(typeNextChar, startDelay)
+  // Start all paragraphs typing together after the initial delay.
+  window.setTimeout(tick, startDelay)
 }
 
 // Auto-init if data attribute present
