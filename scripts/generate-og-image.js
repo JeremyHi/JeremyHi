@@ -11,7 +11,7 @@ const projects = {
   // Main pages
   home: {
     name: 'jeremy hi',
-    desc: 'Full-stack engineer at Gemini. Building KYC systems by day, prediction markets by night.',
+    desc: 'Engineer at Mural Pay building global payments infrastructure. Building Propheseer and Crema on the side.',
     icon: '◆'
   },
   contact: {
@@ -31,10 +31,20 @@ const projects = {
   },
   work: {
     name: 'work',
-    desc: 'Projects: Gemini, Propheseer, and past ventures in fintech and web3.',
+    desc: 'Projects: Mural Pay, Propheseer, Crema, and past ventures in fintech and web3.',
     icon: '◈'
   },
   // Work section pages
+  mural: {
+    name: 'mural pay',
+    desc: 'Global payments infrastructure — building stablecoin rails for fast, reliable cross-border business payments.',
+    icon: '◈'
+  },
+  crema: {
+    name: 'crema',
+    desc: 'A mobile-first espresso shot tracker and dial-in coach — log shots, get live coaching, re-find your best recipe.',
+    icon: '☕'
+  },
   gemini: {
     name: 'gemini',
     desc: 'Cryptocurrency exchange engineering — KYC systems, compliance tools, event-driven architecture at scale.',

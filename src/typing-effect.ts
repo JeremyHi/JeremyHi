@@ -70,6 +70,7 @@ export function initTypingEffect(config: TypingConfig) {
       // Done typing - remove cursor from last paragraph
       const lastP = contents[contents.length - 1].el
       lastP.classList.remove('typing-cursor')
+      container?.classList.add('typing-done')
       return
     }
 
@@ -108,7 +109,9 @@ export function initTypingEffect(config: TypingConfig) {
       if (currentParagraph < contents.length) {
         timeoutId = window.setTimeout(typeNextChar, paragraphDelay)
       } else {
+        // Last paragraph finished - drop cursor and fire the momentum sweep
         el.classList.remove('typing-cursor')
+        container?.classList.add('typing-done')
       }
     } else {
       timeoutId = window.setTimeout(typeNextChar, speed)

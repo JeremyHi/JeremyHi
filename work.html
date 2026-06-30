@@ -3,7 +3,7 @@ layout: home
 title: Work - Jeremy
 permalink: /work/
 og_title: Work - Jeremy
-og_description: Projects including Gemini (KYC/onboarding), Propheseer (prediction markets), and past ventures.
+og_description: Projects including Mural Pay (global payments), Propheseer (prediction markets), Crema (espresso tracking), and past ventures.
 og_image: /assets/og/work.png
 ---
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -70,10 +70,10 @@ og_image: /assets/og/work.png
 
     <div class="work-content" data-accordion>
 
-      <div class="work-item" id="gemini">
+      <div class="work-item" id="mural">
         <h3>
-          <a href="https://gemini.com/" target="_blank">gemini</a> - cryptocurrency exchange
-          <button class="copy-link-btn" data-section="gemini" aria-label="Copy link to this section" title="Copy link">
+          <a href="https://muralpay.com/" target="_blank">mural pay</a> - global payments infrastructure
+          <button class="copy-link-btn" data-section="mural" aria-label="Copy link to this section" title="Copy link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -81,19 +81,10 @@ og_image: /assets/og/work.png
           </button>
         </h3>
         <p>
-          i have produced many pieces of work while at <a href="https://www.gemini.com" target="_blank">gemini</a>. from smaller migrations to new services, to large scale implementations of data pipelines, compliance management tools, and highly distributed systems.
+          i am an engineer at <a href="https://muralpay.com" target="_blank">mural pay</a>, building the rails that move money across borders - helping businesses pay anyone, anywhere, on stablecoin infrastructure.
         </p>
         <p>
-          my day to day involves working on the identity team, which is a key component of gemini's product operations. i work with stakeholders across the entire organization to ensure proper user behavior, regulatory compliance, and operational excellence.
-        </p>
-        <p>
-          i lead projects to ensure the identity service is always able to handle the massive scale of traffic, especially in a highly volatile environment such as a cryptocurrency exchange.
-        </p>
-        <p>
-          one of my more recent projects has been an overhaul of user kyc systems,
-          moving from state-based to event-based architecture, giving users real-time updates system wide.
-          this was a major undertaking, changing a large legacy system to a more manageable and scalable one.
-          i wore both the hat of lead engineer and product manager for this project.
+          my work spans the payments stack: apis, ledgering, and the systems that keep global payouts fast, compliant, and reliable as volume scales. it's a fast-moving problem space, and the goal is to make sending money internationally feel as simple as a single api call.
         </p>
       </div>
 
@@ -154,8 +145,53 @@ og_image: /assets/og/work.png
         </p>
       </div>
 
+      <div class="work-item" id="crema">
+        <h3>
+          <a href="https://trycrema.io/" target="_blank">trycrema.io</a> - espresso shot tracker &amp; dial-in coach
+          <button class="copy-link-btn" data-section="crema" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
+        <p>
+          a pretty, mobile-first webapp for logging espresso shots and learning what dials in each coffee. log dose, grind, yield, and shot time with a tap-to-time stopwatch; shot time is color-graded against the ideal window with tap-for-a-tip coaching, and brew ratio and days-off-roast compute automatically. picking a coffee prefills your last good settings, so you can re-find a recipe fast.
+        </p>
+        <p>
+          built with next.js 16 (app router, server actions), react 19, tailwind v4, and sqlite via drizzle. google sign-in, private per-user journals, installable as a home-screen app, and shipped publicly behind a one-time stripe paywall, served through a cloudflare tunnel.
+        </p>
+      </div>
+
       <h1>past</h1>
       <br>
+
+      <div class="work-item" id="gemini">
+        <h3>
+          <a href="https://gemini.com/" target="_blank">gemini</a> - cryptocurrency exchange
+          <button class="copy-link-btn" data-section="gemini" aria-label="Copy link to this section" title="Copy link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </button>
+        </h3>
+        <p>
+          i produced many pieces of work while at <a href="https://www.gemini.com" target="_blank">gemini</a>. from smaller migrations to new services, to large scale implementations of data pipelines, compliance management tools, and highly distributed systems.
+        </p>
+        <p>
+          my day to day was on the identity team, a key component of gemini's product operations. i worked with stakeholders across the entire organization to ensure proper user behavior, regulatory compliance, and operational excellence.
+        </p>
+        <p>
+          i led projects to ensure the identity service could always handle the massive scale of traffic, especially in a highly volatile environment such as a cryptocurrency exchange.
+        </p>
+        <p>
+          one of my more notable projects was an overhaul of user kyc systems,
+          moving from state-based to event-based architecture, giving users real-time updates system wide.
+          this was a major undertaking, changing a large legacy system to a more manageable and scalable one.
+          i wore both the hat of lead engineer and product manager for this project.
+        </p>
+      </div>
 
       <div class="work-item" id="edmunds">
         <h3>
