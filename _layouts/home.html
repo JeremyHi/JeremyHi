@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"{% unless page.url == '/' %} class="page-anim"{% endunless %}>
 
 <head>
   <meta charset="UTF-8">
@@ -44,6 +44,7 @@
 
 <body>
   {{ content }}
+  <script type="module" src="{{ '/assets/js/dist/momentum-bg.js' | relative_url }}"></script>
 </body>
 
 </html>

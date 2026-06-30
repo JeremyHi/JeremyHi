@@ -88,6 +88,23 @@ body {
     margin-left: 0;
 }
 
+/* Subpage entrance: gentle staggered fade + rise on load (non-home pages).
+   Echoes the home page's rise-in, using the same easing curve. */
+@keyframes page-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+.page-anim .container > * {
+    opacity: 0;
+    animation: page-rise 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.page-anim .container > *:nth-child(1) { animation-delay: 60ms; }
+.page-anim .container > *:nth-child(2) { animation-delay: 140ms; }
+.page-anim .container > *:nth-child(3) { animation-delay: 220ms; }
+.page-anim .container > *:nth-child(4) { animation-delay: 300ms; }
+.page-anim .container > *:nth-child(5) { animation-delay: 380ms; }
+.page-anim .container > *:nth-child(6) { animation-delay: 460ms; }
+
 /* Work page styles */
 .work-content {
     margin-top: 30px;
@@ -287,6 +304,12 @@ body {
     .js-anim .links-section.links-revealed .link-item:nth-child(3),
     .js-anim .links-section.links-revealed .link-item:nth-child(4) {
         transition-delay: 0s;
+    }
+    /* Subpages: show content immediately, no rise */
+    .page-anim .container > * {
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 }
 

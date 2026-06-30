@@ -27,8 +27,8 @@ const ACCENT = '85, 170, 255' // #55aaff
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)')
 
 function initMomentumBg() {
-  // Homepage-only: the intro typewriter marker exists only on index.html.
-  if (!document.querySelector('[data-typing-effect]')) return
+  // Run on any content page (every page wraps its body in .main-content).
+  if (!document.querySelector('.main-content')) return
 
   const canvas = document.createElement('canvas')
   canvas.className = 'momentum-bg-canvas'
