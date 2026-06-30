@@ -9,6 +9,16 @@ interface TypingConfig {
   showCursor?: boolean
   /** Selector for links to reveal once typing completes */
   linksSelector?: string
+  /** Already played this session: skip typing and render the final state instantly */
+  played?: boolean
+}
+
+// sessionStorage can throw in private-mode browsers — access it defensively.
+function safeGet(key: string): string | null {
+  try { return window.sessionStorage.getItem(key) } catch { return null }
+}
+function safeSet(key: string, value: string) {
+  try { window.sessionStorage.setItem(key, value) } catch { /* ignore */ }
 }
 
 interface ParagraphState {
@@ -24,7 +34,7 @@ export function initTypingEffect(config: TypingConfig) {
     speed = 35,
     startDelay = 300,
     showCursor = true,
-    linksSelector = '.links-section'
+    played = false
   } = config
 
   const container = document.querySelector(selector)
@@ -33,7 +43,16 @@ export function initTypingEffect(config: TypingConfig) {
   const paragraphs = Array.from(container.querySelectorAll('p')) as HTMLParagraphElement[]
   if (paragraphs.length === 0) return
 
-  // Snapshot each paragraph, then clear it for typing.
+  // Return visit this session: text is already in the DOM — just show the sweep
+  // underline and skip the clear/type entirely so it renders instantly.
+  if (played) {
+    container.classList.add('typing-done')
+    return
+  }
+
+  // Snapshot each paragraph, then clear it for typing. Reserve each paragraph's
+  // full rendered height first (measured while the text is still present) so the
+  // links sitting below don't shift downward as the intro types in.
   const contents: ParagraphState[] = paragraphs.map(p => {
     const state: ParagraphState = {
       el: p,
@@ -41,8 +60,8 @@ export function initTypingEffect(config: TypingConfig) {
       html: p.innerHTML,
       done: false
     }
+    p.style.minHeight = p.offsetHeight + 'px'
     p.innerHTML = ''
-    p.style.minHeight = '1.5em' // Reserve height to prevent layout shift
     return state
   })
 
@@ -95,13 +114,10 @@ export function initTypingEffect(config: TypingConfig) {
   }
 
   function onComplete() {
-    // Fire the existing momentum sweep…
+    // Fire the momentum sweep under the intro and remember we've played this
+    // session (the links reveal is handled separately, on load).
     container?.classList.add('typing-done')
-    // …then reveal the links rising in from below.
-    window.setTimeout(() => {
-      const links = document.querySelector(linksSelector)
-      links?.classList.add('links-revealed')
-    }, 180)
+    safeSet('introPlayed', '1')
   }
 
   // Reconstruct HTML with a partial text length, preserving inline tags (links).
@@ -154,31 +170,33 @@ export function initTypingEffect(config: TypingConfig) {
     return temp.innerHTML
   }
 
-  // Sequence: head lines type together → a beat → the final ("links") line types
-  // alone → onComplete fires the sweep and reveals the links.
-  const BEAT = 400 // ms pause after the head lines, before the final line
-  const head = contents.slice(0, -1)
-  const last = contents[contents.length - 1]
-
-  window.setTimeout(() => {
-    if (head.length === 0) {
-      typeLines([last], onComplete)
-      return
-    }
-    typeLines(head, () => {
-      window.setTimeout(() => typeLines([last], onComplete), BEAT)
-    })
-  }, startDelay)
+  // Type all intro paragraphs together, then fire the sweep on completion.
+  window.setTimeout(() => typeLines(contents, onComplete), startDelay)
 }
 
 // Auto-init if data attribute present
 document.addEventListener('DOMContentLoaded', () => {
   const typingContainer = document.querySelector('[data-typing-effect]')
-  if (typingContainer) {
-    initTypingEffect({
-      selector: '[data-typing-effect]',
-      speed: parseInt(typingContainer.getAttribute('data-typing-speed') || '35'),
-      startDelay: parseInt(typingContainer.getAttribute('data-typing-delay') || '300')
-    })
+  if (!typingContainer) return
+
+  const played = safeGet('introPlayed') === '1'
+
+  // The links heading + links appear right away (in parallel with the intro
+  // typing), independent of the typewriter. On a return visit, show them instantly.
+  const links = document.querySelector('.links-section')
+  if (played) {
+    links?.classList.add('links-revealed', 'no-anim')
+  } else {
+    // Paint the hidden state once, then trigger the rise-in transition.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => links?.classList.add('links-revealed'))
+    )
   }
+
+  initTypingEffect({
+    selector: '[data-typing-effect]',
+    speed: parseInt(typingContainer.getAttribute('data-typing-speed') || '35'),
+    startDelay: parseInt(typingContainer.getAttribute('data-typing-delay') || '300'),
+    played
+  })
 })
