@@ -62,31 +62,36 @@ export function initTypingEffect(config: TypingConfig) {
     document.head.appendChild(style)
   }
 
-  const maxLen = contents.reduce((m, c) => Math.max(m, c.text.length), 0)
-  let charIndex = 0
+  // Type a group of paragraphs together off a shared char index, then call onDone.
+  function typeLines(group: ParagraphState[], onDone: () => void) {
+    const maxLen = group.reduce((m, c) => Math.max(m, c.text.length), 0)
+    let charIndex = 0
 
-  function tick() {
-    charIndex++
+    function tick() {
+      charIndex++
 
-    for (const c of contents) {
-      if (c.done) continue
+      for (const c of group) {
+        if (c.done) continue
 
-      if (charIndex >= c.text.length) {
-        // This line just finished: restore full HTML, drop its cursor.
-        c.el.innerHTML = c.html
-        c.el.classList.remove('typing-cursor')
-        c.done = true
-      } else {
-        c.el.innerHTML = reconstructHTML(c.html, c.text.slice(0, charIndex))
-        if (showCursor) c.el.classList.add('typing-cursor')
+        if (charIndex >= c.text.length) {
+          // This line just finished: restore full HTML, drop its cursor.
+          c.el.innerHTML = c.html
+          c.el.classList.remove('typing-cursor')
+          c.done = true
+        } else {
+          c.el.innerHTML = reconstructHTML(c.html, c.text.slice(0, charIndex))
+          if (showCursor) c.el.classList.add('typing-cursor')
+        }
       }
+
+      if (charIndex >= maxLen) {
+        onDone()
+        return
+      }
+      window.setTimeout(tick, speed)
     }
 
-    if (charIndex >= maxLen) {
-      onComplete()
-      return
-    }
-    window.setTimeout(tick, speed)
+    tick()
   }
 
   function onComplete() {
@@ -149,8 +154,21 @@ export function initTypingEffect(config: TypingConfig) {
     return temp.innerHTML
   }
 
-  // Start all paragraphs typing together after the initial delay.
-  window.setTimeout(tick, startDelay)
+  // Sequence: head lines type together → a beat → the final ("links") line types
+  // alone → onComplete fires the sweep and reveals the links.
+  const BEAT = 400 // ms pause after the head lines, before the final line
+  const head = contents.slice(0, -1)
+  const last = contents[contents.length - 1]
+
+  window.setTimeout(() => {
+    if (head.length === 0) {
+      typeLines([last], onComplete)
+      return
+    }
+    typeLines(head, () => {
+      window.setTimeout(() => typeLines([last], onComplete), BEAT)
+    })
+  }, startDelay)
 }
 
 // Auto-init if data attribute present

@@ -52,8 +52,8 @@ body {
 .js-anim .link-item {
     opacity: 0;
     transform: translateY(16px);
-    transition: opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
-                transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 660ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 660ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .js-anim .links-section.links-revealed .link-item {
@@ -63,13 +63,13 @@ body {
 
 /* Staggered reveal, one item after another */
 .js-anim .links-section.links-revealed .link-item:nth-child(2) {
-    transition-delay: 0.1s;
+    transition-delay: 0.12s;
 }
 .js-anim .links-section.links-revealed .link-item:nth-child(3) {
-    transition-delay: 0.2s;
+    transition-delay: 0.24s;
 }
 .js-anim .links-section.links-revealed .link-item:nth-child(4) {
-    transition-delay: 0.3s;
+    transition-delay: 0.36s;
 }
 
 .link-item a {

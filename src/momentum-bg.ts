@@ -19,6 +19,8 @@ interface Particle {
   baseAlpha: number
   phase: number // for gentle opacity "breathing"
   twinkle: number // breathing speed
+  ox: number // cursor-repel displacement, springs back to 0
+  oy: number
 }
 
 const ACCENT = '85, 170, 255' // #55aaff
@@ -59,7 +61,9 @@ function initMomentumBg() {
       vy: rand(-3, 3),
       baseAlpha: rand(0.18, 0.42),
       phase: rand(0, Math.PI * 2),
-      twinkle: rand(0.15, 0.5)
+      twinkle: rand(0.15, 0.5),
+      ox: 0,
+      oy: 0
     }
   }
 
@@ -87,7 +91,7 @@ function initMomentumBg() {
       const a = p.baseAlpha * breathe * alphaScale
       if (a <= 0.001) continue
       ctx!.fillStyle = `rgba(${ACCENT}, ${a})`
-      ctx!.fillRect(Math.floor(p.x), Math.floor(p.y), p.size, p.size)
+      ctx!.fillRect(Math.floor(p.x + p.ox), Math.floor(p.y + p.oy), p.size, p.size)
     }
   }
 
@@ -114,6 +118,14 @@ function initMomentumBg() {
   let running = true
   let rafId = 0
 
+  // Cursor repel: pixels near the pointer drift away, then ease back to rest.
+  const REPEL_RADIUS = 130 // px
+  const REPEL_ACCEL = 1100 // push strength
+  const RELAX = 7 // spring-back rate per second
+  const MAX_OFFSET = 26 // clamp on displacement
+  let pointerX = -9999 // offscreen = inactive
+  let pointerY = -9999
+
   function frame(now: number) {
     if (!running) return
     if (!last) last = now
@@ -133,6 +145,23 @@ function initMomentumBg() {
       // Soft vertical wrap.
       if (p.y > height + p.size) p.y = -p.size
       else if (p.y < -p.size) p.y = height + p.size
+
+      // Cursor repel: ease the displacement back toward rest, then push away
+      // from the pointer when within range. The balance settles particles into
+      // a soft parting around the cursor and relaxes them when it leaves.
+      p.ox += (0 - p.ox) * Math.min(RELAX * dt, 1)
+      p.oy += (0 - p.oy) * Math.min(RELAX * dt, 1)
+      const dx = p.x + p.ox - pointerX
+      const dy = p.y + p.oy - pointerY
+      const d2 = dx * dx + dy * dy
+      if (d2 < REPEL_RADIUS * REPEL_RADIUS) {
+        const d = Math.sqrt(d2) || 0.0001
+        const f = 1 - d / REPEL_RADIUS
+        p.ox += (dx / d) * f * REPEL_ACCEL * dt
+        p.oy += (dy / d) * f * REPEL_ACCEL * dt
+        p.ox = Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, p.ox))
+        p.oy = Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, p.oy))
+      }
     }
 
     draw(1, elapsed)
@@ -154,6 +183,19 @@ function initMomentumBg() {
   // Clean fade-in once the first frame is on screen.
   requestAnimationFrame(() => canvas.classList.add('is-visible'))
   rafId = window.requestAnimationFrame(frame)
+
+  // Track the cursor (canvas is fixed/inset:0, so clientX/Y are canvas coords).
+  // mousemove (not pointer/touch) means hover-less touch devices never trigger it.
+  window.addEventListener('mousemove', (e) => {
+    pointerX = e.clientX
+    pointerY = e.clientY
+  }, { passive: true })
+  const clearPointer = () => {
+    pointerX = -9999
+    pointerY = -9999
+  }
+  window.addEventListener('mouseleave', clearPointer)
+  window.addEventListener('blur', clearPointer)
 
   // Pause work while the tab is hidden.
   document.addEventListener('visibilitychange', () => {
