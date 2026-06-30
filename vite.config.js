@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         typing: 'src/typing-effect.ts',
-        accordion: 'src/accordion.ts'
+        accordion: 'src/accordion.ts',
+        'momentum-bg': 'src/momentum-bg.ts'
       },
       output: {
         entryFileNames: '[name].js',

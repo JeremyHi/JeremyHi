@@ -166,6 +166,29 @@ body {
     color: #666;
 }
 
+/* Ambient homepage background: slow-drifting accent pixels behind the content.
+   The canvas sits above the body background but below the content. */
+.momentum-bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1400ms ease;
+}
+
+.momentum-bg-canvas.is-visible {
+    opacity: 1;
+}
+
+/* Keep page content above the ambient canvas */
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
 /* Momentum: an accent line sweeps left-to-right to convey forward motion */
 @keyframes momentum-sweep {
     from { transform: scaleX(0); }
@@ -224,6 +247,10 @@ body {
         transform: scaleX(1);
     }
     .accordion-header::after {
+        transition: none;
+    }
+    /* Show the static ambient field instantly, no fade */
+    .momentum-bg-canvas {
         transition: none;
     }
 }
